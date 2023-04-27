@@ -11,7 +11,7 @@ public class Movement : MonoBehaviour
     public Rigidbody2D rb;
     private Vector2 direction;
 
-    //Variables de animaciÃ³n:
+    //Variables de animación:
     private Animator animator;
 
     // Start is called before the first frame update
@@ -19,7 +19,7 @@ public class Movement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-
+        
     }
 
     // Update is called once per frame
@@ -39,7 +39,7 @@ public class Movement : MonoBehaviour
         horizontalMove = Input.GetAxisRaw("Horizontal");
         verticalMove = Input.GetAxisRaw("Vertical");
 
-        //Cambiar la direcciÃ³n del movimiento en X y Y:
+        //Cambiar la dirección del movimiento en X y Y:
         direction = new Vector2(horizontalMove, verticalMove).normalized;
 
     }
@@ -56,9 +56,9 @@ public class Movement : MonoBehaviour
 
         //En animator, trabaja con los PARAMETROS booleanos
         //"runRight" y "runLeft". 
-        //Solo cambia la primera letra a minÃºscula.
+        //Solo cambia la primera letra a minúscula.
 
-        //AÃ±adir condiciones en las transiciones
+        //Añadir condiciones en las transiciones
         //Las condiciones son: 
         // De idle a runRight = runRight -- true
         // De runRight a idle = runRight -- false
@@ -99,6 +99,8 @@ public class Movement : MonoBehaviour
         {
             animator.SetBool("runLeft", false);
         }
-       
+        
+
+
     }
 }
