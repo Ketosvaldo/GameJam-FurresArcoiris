@@ -31,16 +31,17 @@ public class Reactor_Slider : MonoBehaviour
 
     public void CheckValue()
     {
-        if (slider.value == 1 && !startReset && lever.slider.value == 1)
+        if (slider.value == 1 && lever.slider.value == 1)
         {
             Reactor_Palanca.startReset = true;
             startReset = true;
+            slider.interactable = false;
             if (!lights.isTurnedOn[0])
                 lights.TurnOn(0);
             else if (!lights.isTurnedOn[1])
                 lights.TurnOn(1);
         }
-        else if(slider.value == 1 && lever.slider.value != 1)
+        else if(slider.value == 1 && lever.slider.value != 1 && !startReset)
         {
             startReset = true;
             slider.interactable = false;
