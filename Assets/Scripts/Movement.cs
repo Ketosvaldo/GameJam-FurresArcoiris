@@ -11,7 +11,7 @@ public class Movement : MonoBehaviour
     public Rigidbody2D rb;
     private Vector2 direction;
 
-    //Variables de animación:
+    //Variables de animaciÃ³n:
     private Animator animator;
 
     // Start is called before the first frame update
@@ -39,7 +39,7 @@ public class Movement : MonoBehaviour
         horizontalMove = Input.GetAxisRaw("Horizontal");
         verticalMove = Input.GetAxisRaw("Vertical");
 
-        //Cambiar la dirección del movimiento en X y Y:
+        //Cambiar la direcciÃ³n del movimiento en X y Y:
         direction = new Vector2(horizontalMove, verticalMove).normalized;
 
     }
@@ -51,19 +51,19 @@ public class Movement : MonoBehaviour
 
     void CharacterAnimation()
     {
-        //En animator, con los ESTADOS "CorrerDerecha" y "CorrerIzquierda"
+        //En animator, con las animaciones "RunRight" y "RunLeft"
         //con transiciones de ida y vuelta al estado de "Idle".
 
         //En animator, trabaja con los PARAMETROS booleanos
-        //"correrDerecha" y "correrIzquierda". 
-        //Solo cambia la primera letra a minúscula.
+        //"runRight" y "runLeft". 
+        //Solo cambia la primera letra a minÃºscula.
 
-        //Añadir condiciones en las transiciones
+        //AÃ±adir condiciones en las transiciones
         //Las condiciones son: 
-        // De idle a correrDerecha = correrDerecha -- true
-        // De correrDerecha a idle = correrDerecha -- false
-        // De idle a correrIzquierda = correrIzquierda -- true
-        // De correrIzquierda a idle = correrIzquierda -- false
+        // De idle a runRight = runRight -- true
+        // De runRight a idle = runRight -- false
+        // De idle a runLeft = runLeft -- true
+        // De runLeft a idle = runLeft -- false
 
         //Condiciones para cambiar el estado de los parametros booleanos : 
         if (horizontalMove > 0)
@@ -99,32 +99,6 @@ public class Movement : MonoBehaviour
         {
             animator.SetBool("runLeft", false);
         }
-        //-----------------------------------------------
-        /*if (movimientoVertical > 0)
-        {
-            if(movimientoHorizontal > 0)
-            {
-                animator.SetBool("correrDerecha", true);
-            }
-            else
-            {
-
-                animator.SetBool("correrDerecha", false);
-            }
-        }
-        if (movimientoVertical < 0)
-        {
-            if (movimientoHorizontal < 0)
-            {
-                animator.SetBool("correrDerecha", true);
-            }
-            else
-            {
-
-                animator.SetBool("correrDerecha", false);
-            }
-        }*/
-
-
+       
     }
 }
