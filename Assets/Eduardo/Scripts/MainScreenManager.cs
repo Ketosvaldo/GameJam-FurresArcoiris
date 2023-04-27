@@ -16,7 +16,7 @@ public class MainScreenManager : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("Scenes/Level_1");
+        SceneManager.LoadScene("Eduardo/Scenes/Level_1");
     }
 
     public void ShowCredits()
