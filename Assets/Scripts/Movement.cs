@@ -8,10 +8,11 @@ public class Movement : MonoBehaviour
     float horizontalMove;
     float verticalMove;
     public float speed;
-    public Rigidbody2D rb;
+    private Rigidbody2D rb;
+    public static bool canMove;
     private Vector2 direction;
 
-    //Variables de animación:
+    //Variables de animaciï¿½n:
     private Animator animator;
 
     // Start is called before the first frame update
@@ -19,7 +20,7 @@ public class Movement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        
+        canMove = true;
     }
 
     // Update is called once per frame
@@ -39,14 +40,17 @@ public class Movement : MonoBehaviour
         horizontalMove = Input.GetAxisRaw("Horizontal");
         verticalMove = Input.GetAxisRaw("Vertical");
 
-        //Cambiar la dirección del movimiento en X y Y:
+        //Cambiar la direcciï¿½n del movimiento en X y Y:
         direction = new Vector2(horizontalMove, verticalMove).normalized;
 
     }
     void CharacterMovement()
     {
-        rb.velocity = new Vector2(direction.x * speed, direction.y * speed);
-
+        if(canMove)
+            rb.velocity = new Vector2(direction.x * speed, direction.y * speed);
+        else{
+            rb.velocity = new Vector2(0,0);
+        }
     }
 
     void CharacterAnimation()
@@ -56,9 +60,9 @@ public class Movement : MonoBehaviour
 
         //En animator, trabaja con los PARAMETROS booleanos
         //"runRight" y "runLeft". 
-        //Solo cambia la primera letra a minúscula.
+        //Solo cambia la primera letra a minï¿½scula.
 
-        //Añadir condiciones en las transiciones
+        //Aï¿½adir condiciones en las transiciones
         //Las condiciones son: 
         // De idle a runRight = runRight -- true
         // De runRight a idle = runRight -- false
@@ -66,6 +70,18 @@ public class Movement : MonoBehaviour
         // De runLeft a idle = runLeft -- false
 
         //Condiciones para cambiar el estado de los parametros booleanos : 
+        if (canMove)
+        {
+            moveDiagonalRight();
+            moveDiagonalLeft();
+        }
+        else{
+            animator.SetBool("runRight", false);
+            animator.SetBool("runLeft", false);
+        }
+    }
+
+    void moveDiagonalRight(){
         if (horizontalMove > 0)
         {
             if(verticalMove > 0 || verticalMove < 0)
@@ -76,13 +92,17 @@ public class Movement : MonoBehaviour
             {
                 animator.SetBool("runRight", true);
             }
-            
+            /*
+                Si se mueve a la derecha y hacia arriba o abajo se usa la animacion runRight
+            */       
         }
         else
         {
             animator.SetBool("runRight", false);
         }
+    }
 
+    void moveDiagonalLeft(){
         if (horizontalMove < 0)
         {
             if(verticalMove > 0 || verticalMove < 0)
@@ -99,8 +119,6 @@ public class Movement : MonoBehaviour
         {
             animator.SetBool("runLeft", false);
         }
-        
-
-
     }
+
 }

@@ -4,27 +4,91 @@ using UnityEngine;
 
 public class GeneradorDeEventos : MonoBehaviour
 {
-    public int eventStartTime1, eventStartTime2, eventStartTime3;
+    public int eventStartTimeFirst, eventStartTimeSecond, eventStartTimeThird;
 
-    private float countTime1, countTime2, countTime3;
+    public int bathroomProbability, reactorProbability;
 
-    public bool eventIsActive1, eventIsActive2, eventIsActive3;
+    static public float bathroomTimer, reactorTimer, simonTimer;
 
-    Reactor_Focos lightsStatus;
+    public static bool bathroomIsActive, reactorIsActive, simonIsActive;
+
+    public float bathroomDelay, reactorDelay;
+
+    public GameObject bathroomAlert, reactorAlert, simonAlert;
+
+    public float bathroomDmgTimer, reactorDmgTimer, simonDmgTimer;
+    private float bathroomDmgTimerStore, reactorDmgTimerStore, simonDmgTimerStore;
+
+    HealthBar healthBar;
 
     void Start()
     {
-        lightsStatus = FindObjectOfType<Reactor_Focos>();
-
+        bathroomDmgTimerStore = bathroomDmgTimer;
+        reactorDmgTimerStore = reactorDmgTimer;
+        healthBar = FindObjectOfType<HealthBar>();
+        simonAlert.SetActive(false);
+        int randomValue = Random.Range(0, 2);
+        if(randomValue == 0)
+        {
+            bathroomTimer = eventStartTimeFirst;
+            reactorTimer = eventStartTimeSecond;
+        }
+        else
+        {
+            bathroomTimer = eventStartTimeSecond;
+            reactorTimer = eventStartTimeFirst;
+        }
     }
 
     void Update()
     {
+        if (!bathroomIsActive && bathroomTimer > 0)
+        {
+            bathroomTimer -= Time.deltaTime;
+            bathroomAlert.SetActive(false);
+        }    
+        else if (!bathroomIsActive)
+        {
+            int randomValue = Random.Range(0, 100);
+            if (randomValue <= bathroomProbability)
+            {
+                bathroomIsActive = true;
+                bathroomDmgTimer = bathroomDmgTimerStore;
+                bathroomAlert.SetActive(true);
+            }    
+            else
+                bathroomTimer += 1;
+        }
+        else{
+            bathroomDmgTimer -= Time.deltaTime;
+            if(bathroomDmgTimer <= 0){
+                healthBar.damageDrain();
+            }
+        }
         
-    }
 
-    static void MisionReactorStatus()
-    {
-        
+        if (!reactorIsActive && reactorTimer > 0)
+        {
+            reactorTimer -= Time.deltaTime;
+            reactorAlert.SetActive(false);
+        }    
+        else if (!reactorIsActive)
+        {
+            int randomValue = Random.Range(0, 100);
+            if (randomValue <= reactorProbability)
+            {
+                reactorIsActive = true;
+                reactorDmgTimer = reactorDmgTimerStore;
+                reactorAlert.SetActive(true);
+            }  
+            else
+                reactorTimer += 1;
+        }
+        else{
+            reactorDmgTimer -= Time.deltaTime;
+            if(reactorDmgTimer <= 0){
+                healthBar.damageDrain();
+            }
+        }
     }
 }

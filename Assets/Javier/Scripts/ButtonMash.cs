@@ -11,6 +11,9 @@ public class ButtonMash : MonoBehaviour
 {
     public Slider slider; // Variable que se usa para enlazar el slider
     public GameObject youWinTextContainer; // Variable temporal para demostrar el funcionamiento de la mecánica
+    public GameObject bathroomUI; //Variable para controlar la UI del baño
+    private GeneradorDeEventos eventGenerator; //Referencia al generador de eventos
+    HealthBar healthBar;
 
     bool hasClicked; // Se usa para llevar control de los clicks al botón
     bool hasSucceded; // Se usa para determinar si el jugador completó el minijuego
@@ -19,6 +22,8 @@ public class ButtonMash : MonoBehaviour
 
     private void Start() {
         youWinTextContainer.SetActive(false); // Se usa para esconder el texto de prueba
+        eventGenerator = FindObjectOfType<GeneradorDeEventos>();
+        healthBar = FindObjectOfType<HealthBar>();
     }
 
     private void Update() {
@@ -51,7 +56,14 @@ public class ButtonMash : MonoBehaviour
         slider.value = mashProgress; // Se actualiza el valor del slider
     }
 
-    public void BathroomMinigameEnd(){
-        youWinTextContainer.SetActive(true); // Lógica temporal, será reemplazado con la lógica requerida por el manager de tareas
+    public void BathroomMinigameEnd() {
+        //youWinTextContainer.SetActive(true); // Lógica temporal, será reemplazado con la lógica requerida por el manager de tareas
+        GeneradorDeEventos.bathroomIsActive = false;
+        GeneradorDeEventos.bathroomTimer = eventGenerator.bathroomDelay;
+        Movement.canMove = true;
+        hasSucceded=false;
+        mashProgress=0;
+        healthBar.repairDrain();
+        bathroomUI.SetActive(false);
     }
 }

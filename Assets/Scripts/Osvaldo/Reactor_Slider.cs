@@ -10,12 +10,16 @@ public class Reactor_Slider : MonoBehaviour
 
     Reactor_Focos lights;
     Reactor_Palanca lever;
+
+    HealthBar healthBar;
+
     void Start()
     {
         slider = GetComponent<Slider>();
         startReset = false;
         lights = FindObjectOfType<Reactor_Focos>();
         lever = FindObjectOfType<Reactor_Palanca>();
+        healthBar = FindObjectOfType<HealthBar>();
     }
 
     private void Update()
@@ -49,6 +53,12 @@ public class Reactor_Slider : MonoBehaviour
                 lights.TurnOff(1);
             else if (lights.isTurnedOn[0])
                 lights.TurnOff(0);
+            healthBar.damageDrain();
         }
+    }
+
+    public void ResetSlider()
+    {
+        slider.value = 0;
     }
 }

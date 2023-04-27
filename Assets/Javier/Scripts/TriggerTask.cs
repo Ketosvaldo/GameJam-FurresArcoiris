@@ -11,10 +11,10 @@ public class TriggerTask : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        bathroomUI.SetActive(true);
-    }
-
-    private void OnTriggerExit2D(Collider2D other) {
-        bathroomUI.SetActive(false);
+        if (other.gameObject.CompareTag("Player") && GeneradorDeEventos.bathroomIsActive)
+        {
+            bathroomUI.SetActive(true);
+            Movement.canMove = false;
+        }
     }
 }
