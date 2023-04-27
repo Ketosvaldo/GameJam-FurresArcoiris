@@ -8,7 +8,6 @@ public class GeneradorEventos : MonoBehaviour
 
     private void Start()
     {
-        int randomTask = Random.Range(1, 4);
 
         Invoke("MisionTimon", 5);
         Invoke("MisionReactor", 10);
