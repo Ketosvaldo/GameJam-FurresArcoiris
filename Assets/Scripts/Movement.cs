@@ -9,6 +9,7 @@ public class Movement : MonoBehaviour
     float verticalMove;
     public float speed;
     public Rigidbody2D rb;
+    public static bool canMove;
     private Vector2 direction;
 
     //Variables de animación:
@@ -19,19 +20,23 @@ public class Movement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        
+        canMove = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        ProcessInputs();
-        CharacterAnimation();
+        if (canMove)
+        {
+            ProcessInputs();
+            CharacterAnimation();
+        }
     }
 
     private void FixedUpdate()
     {
-        CharacterMovement();
+        if(canMove)
+            CharacterMovement();
     }
 
     void ProcessInputs()

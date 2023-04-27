@@ -4,27 +4,67 @@ using UnityEngine;
 
 public class GeneradorDeEventos : MonoBehaviour
 {
-    public int eventStartTime1, eventStartTime2, eventStartTime3;
+    public int eventStartTimeFirst, eventStartTimeSecond, eventStartTimeThird;
 
-    private float countTime1, countTime2, countTime3;
+    public int bathroomProbability, reactorProbability;
 
-    public bool eventIsActive1, eventIsActive2, eventIsActive3;
+    static public float bathroomTimer, reactorTimer, simonTimer;
 
-    Reactor_Focos lightsStatus;
+    public static bool bathroomIsActive, reactorIsActive, simonIsActive;
+
+    public float bathroomDelay, reactorDelay;
+
+    public GameObject bathroomAlert, reactorAlert, simonAlert;
 
     void Start()
     {
-        lightsStatus = FindObjectOfType<Reactor_Focos>();
-
+        int randomValue = Random.Range(0, 2);
+        if(randomValue == 0)
+        {
+            bathroomTimer = eventStartTimeFirst;
+            reactorTimer = eventStartTimeSecond;
+        }
+        else
+        {
+            bathroomTimer = eventStartTimeSecond;
+            reactorTimer = eventStartTimeFirst;
+        }
     }
 
     void Update()
     {
-        
-    }
+        if (!bathroomIsActive && bathroomTimer > 0)
+        {
+            bathroomTimer -= Time.deltaTime;
+            bathroomAlert.SetActive(false);
+        }    
+        else if (!bathroomIsActive)
+        {
+            int randomValue = Random.Range(0, 100);
+            if (randomValue <= bathroomProbability)
+            {
+                bathroomIsActive = true;
+                bathroomAlert.SetActive(true);
+            }    
+            else
+                bathroomTimer += 1;
+        }
 
-    static void MisionReactorStatus()
-    {
-        
+        if (!reactorIsActive && reactorTimer > 0)
+        {
+            reactorTimer -= Time.deltaTime;
+            reactorAlert.SetActive(false);
+        }    
+        else if (!reactorIsActive)
+        {
+            int randomValue = Random.Range(0, 100);
+            if (randomValue <= reactorProbability)
+            {
+                reactorIsActive = true;
+                reactorAlert.SetActive(true);
+            }  
+            else
+                reactorTimer += 1;
+        }
     }
 }

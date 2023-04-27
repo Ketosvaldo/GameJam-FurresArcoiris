@@ -51,4 +51,9 @@ public class Reactor_Slider : MonoBehaviour
                 lights.TurnOff(0);
         }
     }
+
+    public void ResetSlider()
+    {
+        slider.value = 0;
+    }
 }
