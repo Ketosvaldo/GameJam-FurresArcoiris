@@ -10,20 +10,14 @@ public class SCR_TaskManager : MonoBehaviour
 
     public GameObject panel;
     public int counter = 0;
-
-    private void Start()
-    {
-        SelectButton();
-    }
+    public bool enable = true;
 
     public void SelectButton()
     {
-        //Debug.Log(counter);
         randomButtons = Random.Range(0, 4); //variable random que elige algun boton
         if (!buttons[randomButtons].win)
         {
             buttons[randomButtons].isSelect = true;
-            //Debug.Log("Button" + buttons[randomButtons].name + " Activado");
 
             counter++;
         }
@@ -34,6 +28,16 @@ public class SCR_TaskManager : MonoBehaviour
         else
         {
             panel.SetActive(false);
+            for (int i = 0; i < buttons.Length; i++)
+            {
+                buttons[i].isSelect = false;
+                buttons[i].win = false;
+                buttons[i].timeToLose = 0;
+                buttons[i].timeToWin = 0;
+                buttons[i].isTimer = false;
+            }
+            counter = 0;
+            SelectButton();
         }
     }
 

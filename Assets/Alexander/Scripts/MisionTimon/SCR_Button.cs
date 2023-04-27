@@ -5,9 +5,9 @@ using UnityEngine.EventSystems;
 
 public class SCR_Button : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
-    private float timeToWin = 0; //contador de tiempo presionado del boton
-    private float timeToLose = 0; //variable que aumenta su valor con respecto al tiempo para señalar que el jugador a perdido
-    private bool isTimer; //boolean que verifica si el boton esta presionado
+    public float timeToWin = 0; //contador de tiempo presionado del boton
+    public float timeToLose = 0; //variable que aumenta su valor con respecto al tiempo para señalar que el jugador a perdido
+    public bool isTimer; //boolean que verifica si el boton esta presionado
 
 
     public bool isSelect; //variable que funciona para decir que esta seleccionado o fue seleccionada antes
@@ -18,6 +18,7 @@ public class SCR_Button : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     private void Start()
     {
         taskManager = FindObjectOfType<SCR_TaskManager>();
+
     }
 
     private void Update()
@@ -31,6 +32,14 @@ public class SCR_Button : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             if (timeToLose - timeToWin >= 7)
             {
                 isSelect = false; //se ha superado el tiempo para superar el boton, el jugador pierde
+                taskManager.panel.SetActive(false);
+
+                /*resets*/
+                win = false;
+                isSelect = false;
+                timeToLose = 0;
+                timeToWin = 0;
+                isTimer = false;
             }
             else if (timeToWin >= 3.0f)
             {
