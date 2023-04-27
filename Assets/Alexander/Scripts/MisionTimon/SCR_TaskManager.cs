@@ -18,12 +18,12 @@ public class SCR_TaskManager : MonoBehaviour
 
     public void SelectButton()
     {
-        Debug.Log(counter);
+        //Debug.Log(counter);
         randomButtons = Random.Range(0, 4); //variable random que elige algun boton
         if (!buttons[randomButtons].win)
         {
             buttons[randomButtons].isSelect = true;
-            Debug.Log("Button" + buttons[randomButtons].name + " Activado");
+            //Debug.Log("Button" + buttons[randomButtons].name + " Activado");
 
             counter++;
         }
