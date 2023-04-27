@@ -13,4 +13,5 @@ public class SCR_MissionActive : MonoBehaviour
             mision.SetActive(true);
         }
     }
+
 }

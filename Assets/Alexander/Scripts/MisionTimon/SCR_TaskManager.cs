@@ -7,39 +7,27 @@ public class SCR_TaskManager : MonoBehaviour
 {
     [SerializeField] public  SCR_Button[] buttons; //arreglo de botones. Agregar manualmente desde el inspector
     private int randomButtons;
+    [SerializeField] public int count = 0;
 
     public GameObject panel;
-    public int counter = 0;
-    public bool enable = true;
 
-    public void SelectButton()
+    private void Start()
     {
-        randomButtons = Random.Range(0, 4); //variable random que elige algun boton
-        if (!buttons[randomButtons].win)
-        {
-            buttons[randomButtons].isSelect = true;
+        SelectButton();
+    }
 
-            counter++;
-        }
-        else if(counter != 4)
-        {
-            SelectButton();
-        }
-        else
+    private void Update()
+    {
+        if (count == 4)
         {
             panel.SetActive(false);
-            for (int i = 0; i < buttons.Length; i++)
-            {
-                buttons[i].isSelect = false;
-                buttons[i].win = false;
-                buttons[i].timeToLose = 0;
-                buttons[i].timeToWin = 0;
-                buttons[i].isTimer = false;
-            }
-            counter = 0;
-            SelectButton();
         }
     }
 
-
+    public void SelectButton()
+    {
+        //randomButtons = Random.Range(0, 4); //variable random que elige algun boton
+        buttons[count].ButtonMision();
+        count++;
+    }
 }
