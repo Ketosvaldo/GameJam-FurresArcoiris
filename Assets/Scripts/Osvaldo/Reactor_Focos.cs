@@ -11,11 +11,15 @@ public class Reactor_Focos : MonoBehaviour
 
     Reactor_Palanca lever;
     Reactor_Slider slider;
+
+    HealthBar healthBar;
+
     private void Start()
     {
         eventGenerator = FindObjectOfType<GeneradorDeEventos>();
         lever = FindObjectOfType<Reactor_Palanca>();
         slider = FindObjectOfType<Reactor_Slider>();
+        healthBar = FindObjectOfType<HealthBar>();
     }
     public void TurnOn(int index)
     {
@@ -42,6 +46,7 @@ public class Reactor_Focos : MonoBehaviour
             TurnOff(1);
             lever.slider.value = 0;
             slider.ResetSlider();
+            healthBar.repairDrain();
             ReactorUI.SetActive(false);
         }
     }

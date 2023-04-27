@@ -22,11 +22,11 @@ public class HealthBar : MonoBehaviour
         slider.value = health; // Se desactiva el texto y se ajusta el slider a la vida
     }
 
-    public void damageButtonPressed(){
+    public void damageDrain(){
         healthDecreasing = true;
     }
 
-    public void repairButtonPressed(){
+    public void repairDrain(){
         healthDecreasing = false;
     } // Los dos métodos button pressed se conectan a los botones de la UI temporal pero la variable se ajustará con los tasks externos
 
