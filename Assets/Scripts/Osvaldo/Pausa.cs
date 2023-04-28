@@ -25,4 +25,12 @@ public class Pausa : MonoBehaviour
             isPause = !isPause;
         }
     }
+
+    public void Resume()
+    {
+        isPause = false;
+        Time.timeScale = 1;
+        PausaUI.SetActive(false);
+        Movement.canMove = true;
+    }
 }

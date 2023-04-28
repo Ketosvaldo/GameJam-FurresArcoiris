@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Eduardo/Scenes/Level_1.unity
     guid: 260670ee114422a4bb283f49d655e17d
+  - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: 6caa7cbaecd41b74585ba5407b54f794
   m_configObjects: {}
