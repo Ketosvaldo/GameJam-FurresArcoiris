@@ -14,12 +14,14 @@ public class Movement : MonoBehaviour
 
     //Variables de animaci�n:
     private Animator animator;
+    private SpriteRenderer renderer;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        renderer = GetComponent<SpriteRenderer>();
         canMove = true;
     }
 
@@ -55,69 +57,22 @@ public class Movement : MonoBehaviour
 
     void CharacterAnimation()
     {
-        //En animator, con las animaciones "RunRight" y "RunLeft"
-        //con transiciones de ida y vuelta al estado de "Idle".
-
-        //En animator, trabaja con los PARAMETROS booleanos
-        //"runRight" y "runLeft". 
-        //Solo cambia la primera letra a min�scula.
-
-        //A�adir condiciones en las transiciones
-        //Las condiciones son: 
-        // De idle a runRight = runRight -- true
-        // De runRight a idle = runRight -- false
-        // De idle a runLeft = runLeft -- true
-        // De runLeft a idle = runLeft -- false
-
-        //Condiciones para cambiar el estado de los parametros booleanos : 
         if (canMove)
         {
-            moveDiagonalRight();
-            moveDiagonalLeft();
+            if(horizontalMove != 0 || verticalMove != 0){
+                animator.SetBool("run", true);
+                if(horizontalMove < 0){
+                    renderer.flipX = true;
+                }else if(horizontalMove > 0){
+                    renderer.flipX = false;
+                }
+            }
+            else{
+                animator.SetBool("run", false);
+            }
         }
         else{
-            animator.SetBool("runRight", false);
-            animator.SetBool("runLeft", false);
-        }
-    }
-
-    void moveDiagonalRight(){
-        if (horizontalMove > 0)
-        {
-            if(verticalMove > 0 || verticalMove < 0)
-            {
-                animator.SetBool("runRight", true);
-            }
-            else
-            {
-                animator.SetBool("runRight", true);
-            }
-            /*
-                Si se mueve a la derecha y hacia arriba o abajo se usa la animacion runRight
-            */       
-        }
-        else
-        {
-            animator.SetBool("runRight", false);
-        }
-    }
-
-    void moveDiagonalLeft(){
-        if (horizontalMove < 0)
-        {
-            if(verticalMove > 0 || verticalMove < 0)
-            {
-                animator.SetBool("runLeft", true);
-            }
-            else
-            {
-                animator.SetBool("runLeft", true);
-            }
-            
-        }
-        else
-        {
-            animator.SetBool("runLeft", false);
+            animator.SetBool("run", false);
         }
     }
 
