@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/DeathScene.unity
     guid: 96c69849b2affe34888a070e0111d39f
   - enabled: 1
-    path: Assets/Scenes/WinScene.unity
+    path: Assets/Scenes/WinScene1.unity
     guid: 877a7ec41797f404eaa9735e68a426a7
   - enabled: 1
     path: Assets/Eduardo/Scenes/Menu.unity
