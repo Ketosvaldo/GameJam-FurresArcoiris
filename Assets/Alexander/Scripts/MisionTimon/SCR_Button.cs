@@ -14,10 +14,13 @@ public class SCR_Button : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     private SCR_TaskManager taskManager; //referencia del task manager
     public GameObject over; //objeto que hace que el boton se remarque
 
+    SFX_Controller sfx;
 
+    bool reproducedClip;
     private void Start()
     {
         taskManager = FindObjectOfType<SCR_TaskManager>();
+        sfx = FindObjectOfType<SFX_Controller>();
     }
 
     private void Update()
@@ -25,6 +28,11 @@ public class SCR_Button : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         if (onGame)
         {
             timeToLose += Time.deltaTime; //inicio del contador para perder
+            if (!reproducedClip)
+            {
+                sfx.PlayAudio(6);
+                reproducedClip = true;
+            }
         }
 
         if (isTimer) //aumenta cuando presionas el boton
@@ -35,6 +43,7 @@ public class SCR_Button : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         if (timeToWin >= 2.0f)
         {
             taskManager.SelectButton();
+            reproducedClip = false;
             Restart();
             over.SetActive(false);
         }
@@ -63,6 +72,7 @@ public class SCR_Button : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public void ButtonMision()
     {
         over.SetActive(true); //el boton esta habilitado para usarse
+        
         onGame = true;
     }
 

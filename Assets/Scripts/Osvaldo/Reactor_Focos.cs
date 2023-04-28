@@ -16,6 +16,8 @@ public class Reactor_Focos : MonoBehaviour
 
     SFX_Controller sfx;
 
+    public Text text;
+
     private void Start()
     {
         eventGenerator = FindObjectOfType<GeneradorDeEventos>();
@@ -50,12 +52,14 @@ public class Reactor_Focos : MonoBehaviour
             GeneradorDeEventos.reactorTimer = eventGenerator.reactorDelay;
             Movement.canMove = true;
             sfx.PlayAudio(4);
+            text.gameObject.SetActive(true);
             Invoke("DeactivateUI", 2);
         }
     }
 
     void DeactivateUI()
     {
+        text.gameObject.SetActive(false);
         lever.slider.value = 0;
         slider.ResetSlider();
         healthBar.repairDrain();

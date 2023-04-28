@@ -13,21 +13,31 @@ public class SCR_TaskManager : MonoBehaviour
 
     private GeneradorDeEventos eventGenerator;
 
+    SFX_Controller sfx;
+
+    bool waitFinish;
+
+    public Text textoDeVictoria;
+
     private void Start()
     {
         SelectButton();
         eventGenerator = FindObjectOfType<GeneradorDeEventos>();
+        sfx = FindObjectOfType<SFX_Controller>();
     }
 
     private void Update()
     {
-        if (count == 4)
+        if (count == 4 && !waitFinish)
         {
             GeneradorDeEventos.simonIsActive = false;
             GeneradorDeEventos.simonTimer = eventGenerator.simonDelay;
             Movement.canMove = true;
+            sfx.PlayAudio(4);
             count = 0;
-            panel.SetActive(false);
+            waitFinish = true;
+            textoDeVictoria.gameObject.SetActive(true);
+            Invoke("DeactivatePanel", 2);
         }
     }
 
@@ -36,5 +46,12 @@ public class SCR_TaskManager : MonoBehaviour
         //randomButtons = Random.Range(0, 4); //variable random que elige algun boton
         buttons[count].ButtonMision();
         count++;
+    }
+
+    void DeactivatePanel()
+    {
+        textoDeVictoria.gameObject.SetActive(false);
+        waitFinish = false;
+        panel.SetActive(false);
     }
 }
