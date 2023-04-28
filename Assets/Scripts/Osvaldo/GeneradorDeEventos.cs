@@ -23,6 +23,7 @@ public class GeneradorDeEventos : MonoBehaviour
 
     void Start()
     {
+        Application.targetFrameRate = 60;
         bathroomDmgTimerStore = bathroomDmgTimer;
         reactorDmgTimerStore = reactorDmgTimer;
         simonDmgTimerStore = simonDmgTimer;

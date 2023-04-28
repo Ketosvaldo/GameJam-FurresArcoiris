@@ -50,6 +50,7 @@ public class ButtonMash : MonoBehaviour
     }
 
     public void ButtonClick(){
+        if(!Pausa.isPause)
         hasClicked = true; // ButtonClick se usa para enlazar el script con los clicks del botón
     }
 

@@ -260,7 +260,7 @@ TextureImporter:
         width: 15
         height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -281,7 +281,7 @@ TextureImporter:
         width: 15
         height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -302,7 +302,7 @@ TextureImporter:
         width: 15
         height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -323,7 +323,7 @@ TextureImporter:
         width: 15
         height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -331,6 +331,69 @@ TextureImporter:
       bones: []
       spriteID: df37e3580fdc8a645b49038415e0be6b
       internalID: 1805255281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprites finales_11
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 77
+        width: 26
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95867568434912e42876e587946f1a6b
+      internalID: -768107334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprites finales_12
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 66
+        width: 42
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 707a33de29c42a64d93f615a8e80585f
+      internalID: 517135712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprites finales_13
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 91
+        width: 30
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7aac9055e8f16304b98ab11f81fc7ce0
+      internalID: -1590593030
       vertices: []
       indices: 
       edges: []
@@ -353,8 +416,11 @@ TextureImporter:
       Sprites finales_6: -805027921
       Sprites finales_8: -720382827
       Sprites finales_0: -927062104
+      Sprites finales_13: -1590593030
       Sprites finales_4: -1771148780
       Sprites finales_5: -1035492024
+      Sprites finales_12: 517135712
+      Sprites finales_11: -768107334
       Sprites finales_1: -1797642685
       Sprites finales_7: -1879199096
   spritePackingTag: 
