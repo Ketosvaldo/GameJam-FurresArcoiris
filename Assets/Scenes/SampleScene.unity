@@ -1658,7 +1658,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1236926582708822808, guid: 2e69c9bfcb5417c47888d7f197b72483, type: 3}
   m_PrefabInstance: {fileID: 530217140}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &530217143
+--- !u!114 &530217147
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1667,17 +1667,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 530217142}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c587883fdfdba524ca2c96193f3fcec5, type: 3}
+  m_Script: {fileID: 11500000, guid: 9fb2194369a7ef44a862e6bec5787496, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  posX: 16.5
-  posY: 3.15
-  InteractableIconPlayer: {fileID: 659127816}
   transitionObject: {fileID: 1751061307}
-  playerStore: {fileID: 0}
   camera: {fileID: 519420028}
   cameraTarget: {fileID: 911372449}
-  transitionTimer: 1
+  InteractableIconPlayer: {fileID: 659127816}
+  cheetaBathroomAnim: {fileID: 1773327751}
+  bathroomUI: {fileID: 1953718035}
+  transitionTimer: 3.5
   transitionTimerStore: 0
 --- !u!1 &532849345
 GameObject:
@@ -2816,7 +2815,7 @@ MonoBehaviour:
   bathroomProbability: 99
   reactorProbability: 99
   simonProbability: 99
-  bathroomDelay: 1
+  bathroomDelay: 100
   reactorDelay: 1
   simonDelay: 5
   bathroomAlert: {fileID: 179193730}
@@ -4240,9 +4239,29 @@ PrefabInstance:
       value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 3267825214446481100, guid: 3db25842eec34674b990dba66192bd43, type: 3}
+      propertyPath: camera
+      value: 
+      objectReference: {fileID: 519420028}
+    - target: {fileID: 3267825214446481100, guid: 3db25842eec34674b990dba66192bd43, type: 3}
       propertyPath: bathroomUI
       value: 
       objectReference: {fileID: 1953718035}
+    - target: {fileID: 3267825214446481100, guid: 3db25842eec34674b990dba66192bd43, type: 3}
+      propertyPath: cameraTarget
+      value: 
+      objectReference: {fileID: 1088776588}
+    - target: {fileID: 3267825214446481100, guid: 3db25842eec34674b990dba66192bd43, type: 3}
+      propertyPath: transitionObject
+      value: 
+      objectReference: {fileID: 1751061307}
+    - target: {fileID: 3267825214446481100, guid: 3db25842eec34674b990dba66192bd43, type: 3}
+      propertyPath: cheetaBathroomAnim
+      value: 
+      objectReference: {fileID: 1773327751}
+    - target: {fileID: 3267825214446481100, guid: 3db25842eec34674b990dba66192bd43, type: 3}
+      propertyPath: InteractableIconPlayer
+      value: 
+      objectReference: {fileID: 659127816}
     - target: {fileID: 3267825214535861381, guid: 3db25842eec34674b990dba66192bd43, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -4903,7 +4922,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6400123706688299327, guid: 58a7b6f66d46c0f4c8cf50c1ef8f0b39, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.94
+      value: -3.51
       objectReference: {fileID: 0}
     - target: {fileID: 6400123706688299327, guid: 58a7b6f66d46c0f4c8cf50c1ef8f0b39, type: 3}
       propertyPath: m_LocalPosition.y

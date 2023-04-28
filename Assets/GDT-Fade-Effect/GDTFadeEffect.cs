@@ -154,7 +154,7 @@ public class GDTFadeEffect : MonoBehaviour
     private void Disable()
     {
         gameObject.SetActive(false);
-        Movement.canMove = true;
+        if(!BathroomTrigger.bathroomIsPlaying)Movement.canMove = true;
     }
 
     private void HalfCycleDelay()
