@@ -4413,21 +4413,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ebc451adf65c16409fd26858b0d94ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventStartTimeFirst: 1
-  eventStartTimeSecond: 1
-  eventStartTimeThird: 1
-  bathroomProbability: 99
-  reactorProbability: 99
-  simonProbability: 99
-  bathroomDelay: 100
-  reactorDelay: 1
-  simonDelay: 5
+  eventStartTimeFirst: 5
+  eventStartTimeSecond: 15
+  eventStartTimeThird: 25
+  bathroomProbability: 90
+  reactorProbability: 20
+  simonProbability: 50
+  bathroomDelay: 40
+  reactorDelay: 35
+  simonDelay: 40
   bathroomAlert: {fileID: 179193730}
   reactorAlert: {fileID: 523728830}
   simonAlert: {fileID: 84272340}
-  bathroomDmgTimer: 10
-  reactorDmgTimer: 10
-  simonDmgTimer: 10
+  bathroomDmgTimer: 15
+  reactorDmgTimer: 20
+  simonDmgTimer: 20
 --- !u!4 &968347856
 Transform:
   m_ObjectHideFlags: 0
@@ -7338,7 +7338,7 @@ PrefabInstance:
       objectReference: {fileID: 4270382562284081769, guid: c08df4c172b581a42a91ef19c0f4bea9, type: 2}
     - target: {fileID: 5956498739516264099, guid: 1242eb3ab903f6646abfb8374c41314c, type: 3}
       propertyPath: time
-      value: 128
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 5956498739516264099, guid: 1242eb3ab903f6646abfb8374c41314c, type: 3}
       propertyPath: winScene
