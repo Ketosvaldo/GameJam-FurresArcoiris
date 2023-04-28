@@ -28,7 +28,8 @@ public class GeneradorDeEventos : MonoBehaviour
         simonDmgTimerStore = simonDmgTimer;
         healthBar = FindObjectOfType<HealthBar>();
 
-        int randomValue = Random.Range(0, 3);
+        int randomValue = Random.Range(0, 2);
+
         if(randomValue == 0)
         {
             bathroomTimer = eventStartTimeFirst;

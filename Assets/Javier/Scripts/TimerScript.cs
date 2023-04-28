@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 /*
     TimerScript se utiliza para hacer la cuenta regresiva y escribirla en formato de tiempo en un text mesh pro, así como también para iniciar el proceso de victoria
@@ -15,6 +16,8 @@ public class TimerScript : MonoBehaviour
     bool timerOn = false; // Se utiliza para activar y desactivar el reloj
     public TMP_Text timerText; // Se utiliza para enlazar el texto y cambiarlo
     public GameObject winTextContainer; // Variable temporal para probar la victoria
+
+    public string winScene;
 
     private void Start() {
         timerOn = true;
@@ -43,7 +46,8 @@ public class TimerScript : MonoBehaviour
     }
 
     public void GameEnd(){
-        winTextContainer.SetActive(true); // Aquí se escribe la lógica del final del juego
+        //winTextContainer.SetActive(true); // Aquí se escribe la lógica del final del juego
+        SceneManager.LoadScene(winScene);
     }
 
 }
