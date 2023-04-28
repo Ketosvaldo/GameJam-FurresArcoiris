@@ -102,6 +102,7 @@ public class GeneradorDeEventos : MonoBehaviour
 
         if (!simonIsActive && simonTimer > 0)
         {
+            Debug.Log("Hola mundo");
             simonTimer -= Time.deltaTime;
             simonAlert.SetActive(false);
         }
