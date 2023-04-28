@@ -47,13 +47,6 @@ public class SCR_Button : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             Restart();
             over.SetActive(false);
         }
-        else if (timeToLose - timeToWin >= 7)
-        {
-            onGame = true; //condicion de derrota
-            taskManager.count = 0;
-            Restart();
-            taskManager.panel.SetActive(false);
-        }
         
     }
 

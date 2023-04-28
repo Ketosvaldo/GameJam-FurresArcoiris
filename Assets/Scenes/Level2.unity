@@ -6916,11 +6916,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5956498738093683434, guid: 1242eb3ab903f6646abfb8374c41314c, type: 3}
       propertyPath: deathSceneName
-      value: DeaathScene
+      value: DeathScene
       objectReference: {fileID: 0}
     - target: {fileID: 5956498738093683434, guid: 1242eb3ab903f6646abfb8374c41314c, type: 3}
       propertyPath: healthLossPerTick
-      value: 0.05
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 5956498738093683435, guid: 1242eb3ab903f6646abfb8374c41314c, type: 3}
       propertyPath: m_Value
@@ -7128,7 +7128,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5956498739516264099, guid: 1242eb3ab903f6646abfb8374c41314c, type: 3}
       propertyPath: winScene
-      value: WinScene
+      value: WinScene2
       objectReference: {fileID: 0}
     - target: {fileID: 5956498739516264099, guid: 1242eb3ab903f6646abfb8374c41314c, type: 3}
       propertyPath: timerText
