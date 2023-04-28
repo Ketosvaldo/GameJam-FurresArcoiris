@@ -344,7 +344,7 @@ TextureImporter:
         width: 26
         height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -365,7 +365,7 @@ TextureImporter:
         width: 42
         height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -386,7 +386,7 @@ TextureImporter:
         width: 30
         height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -394,6 +394,27 @@ TextureImporter:
       bones: []
       spriteID: 7aac9055e8f16304b98ab11f81fc7ce0
       internalID: -1590593030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprites finales_14
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 53
+        width: 42
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9371ef2359850434d91af71943042880
+      internalID: 1152636541
       vertices: []
       indices: 
       edges: []
@@ -421,6 +442,7 @@ TextureImporter:
       Sprites finales_5: -1035492024
       Sprites finales_12: 517135712
       Sprites finales_11: -768107334
+      Sprites finales_14: 1152636541
       Sprites finales_1: -1797642685
       Sprites finales_7: -1879199096
   spritePackingTag: 

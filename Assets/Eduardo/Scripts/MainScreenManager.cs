@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.UI;
 public class MainScreenManager : MonoBehaviour
 {
     [SerializeField] private GameObject panelMenu;
     [SerializeField] private GameObject panelCredits;
 
+    [SerializeField] private Sprite chitaAnsioso;
+    public Image chitaImage;
     void Start()
     {
         panelMenu.SetActive(true);
@@ -16,7 +18,8 @@ public class MainScreenManager : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("Eduardo/Scenes/Level_1");
+        chitaImage.sprite = chitaAnsioso;
+        Invoke("IniciarJuego", 2);
     }
 
     public void ShowCredits()
@@ -54,5 +57,10 @@ public class MainScreenManager : MonoBehaviour
         {
             panelCredits.SetActive(true);
         }
+    }
+
+    void IniciarJuego()
+    {
+        SceneManager.LoadScene("SampleScene");
     }
 }

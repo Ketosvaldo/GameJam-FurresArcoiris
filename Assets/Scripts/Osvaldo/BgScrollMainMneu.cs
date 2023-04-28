@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BgScroll : MonoBehaviour
+public class BgScrollMainMneu : MonoBehaviour
 {
     public float scrollSpeed = 0.1f;
     Material mat;
@@ -10,7 +10,7 @@ public class BgScroll : MonoBehaviour
 
     private void Awake()
     {
-        mat = GetComponent<SpriteRenderer>().material;
+        mat = GetComponent<Image>().material;
     }
 
     void Update()
