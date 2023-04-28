@@ -13,13 +13,14 @@ public class Reactor_Palanca : MonoBehaviour
     float astronautForce;   //Fuerza del astronauta para mover la palanca
     public Slider slider;          //Variable para declarar el Slider en cuestión
     public bool stopReduce;        //Booleano para saber cuando detener el slider
-
+    SFX_Controller sfx;
     private void Start()
     {
         //Le damos valores a cada variable
         slider = GetComponent<Slider>();
         stopReduce = false;
         startReset = false;
+        sfx = FindObjectOfType<SFX_Controller>();
     }
 
     void Update()
@@ -31,6 +32,7 @@ public class Reactor_Palanca : MonoBehaviour
             DecrementSlider(stopReduce);
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                sfx.PlayAudio(5);
                 IncrementSlider();
             }
             if (slider.value >= 1)

@@ -407,7 +407,7 @@ TextureImporter:
         width: 42
         height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -415,6 +415,27 @@ TextureImporter:
       bones: []
       spriteID: 9371ef2359850434d91af71943042880
       internalID: 1152636541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprites finales_15
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 40
+        width: 42
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4618e2416b96ea4090878f074b33d3d
+      internalID: -101260833
       vertices: []
       indices: 
       edges: []
@@ -430,6 +451,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Sprites finales_15: -101260833
       Sprites finales_10: 1805255281
       Sprites finales_9: -746256386
       Sprites finales_2: 1349693812

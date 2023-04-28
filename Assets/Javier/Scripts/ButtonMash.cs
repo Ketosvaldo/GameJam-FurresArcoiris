@@ -23,6 +23,9 @@ public class ButtonMash : MonoBehaviour
 
     public GameObject InteractableIconPlayer;
 
+    SFX_Controller sfx;
+    MusicController musicController;
+
     bool hasClicked; // Se usa para llevar control de los clicks al botón
     bool hasSucceded; // Se usa para determinar si el jugador completó el minijuego
     float perClickValue = 0.2f; // Valor de cada click al botón
@@ -32,6 +35,8 @@ public class ButtonMash : MonoBehaviour
         youWinTextContainer.SetActive(false); // Se usa para esconder el texto de prueba
         eventGenerator = FindObjectOfType<GeneradorDeEventos>();
         healthBar = FindObjectOfType<HealthBar>();
+        sfx = GameObject.FindGameObjectWithTag("SFX").GetComponent<SFX_Controller>();
+        musicController = GameObject.FindGameObjectWithTag("Music").GetComponent<MusicController>();
     }
 
     private void Update() {
@@ -68,6 +73,7 @@ public class ButtonMash : MonoBehaviour
     public void BathroomMinigameEnd() {
         //youWinTextContainer.SetActive(true); // Lógica temporal, será reemplazado con la lógica requerida por el manager de tareas
         GeneradorDeEventos.bathroomIsActive = false;
+        sfx.PlayAudio(1);
         GeneradorDeEventos.bathroomTimer = eventGenerator.bathroomDelay;
         hasSucceded=false;
         mashProgress=0;
@@ -76,12 +82,19 @@ public class ButtonMash : MonoBehaviour
         BathroomTrigger.bathroomIsPlaying = false;
         cheetaBathroomAnim.SetActive(false);
         transitionObject.SetActive(true);
+        Invoke("SplashSound", 0.5f);
         Invoke("moveCamera", 1);
         InteractableIconPlayer.SetActive(false);
         
     }
 
     private void moveCamera(){
+        musicController.PlayAudio(0);
         camera.transform.position = cameraTarget.transform.position;
+    }
+
+    void SplashSound()
+    {
+        sfx.PlayAudio(2);
     }
 }

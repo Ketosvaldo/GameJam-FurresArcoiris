@@ -15,11 +15,14 @@ public class SCR_Teleport : MonoBehaviour
     public GameObject camera;
     public GameObject cameraTarget;
 
+    SFX_Controller sfx;
+
     public float transitionTimer = 1, transitionTimerStore;
     private bool canTeleport = false;
 
     private void Start() {
         transitionTimerStore = transitionTimer;
+        sfx = GameObject.FindGameObjectWithTag("SFX").GetComponent<SFX_Controller>();
     }
 
     private void Update(){
@@ -40,6 +43,7 @@ public class SCR_Teleport : MonoBehaviour
             InteractableIconPlayer.SetActive(true);
             if (Input.GetKey(KeyCode.E))
             {
+                sfx.PlayAudio(0);
                 transitionObject.SetActive(true);
                 playerStore = collision;
                 canTeleport = true;

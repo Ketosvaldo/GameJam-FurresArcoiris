@@ -11,12 +11,17 @@ public class BathroomTrigger : MonoBehaviour
     public GameObject cheetaBathroomAnim;
     public GameObject bathroomUI;
 
+    SFX_Controller sfx;
+    MusicController musicController;
+
     public float transitionTimer = 4.5f, transitionTimerStore;
 
     public static bool bathroomIsPlaying;
 
     private void Start() {
         transitionTimerStore = transitionTimer;
+        sfx = GameObject.FindGameObjectWithTag("SFX").GetComponent<SFX_Controller>();
+        musicController = GameObject.FindGameObjectWithTag("Music").GetComponent<MusicController>();
     }
 
     private void Update(){
@@ -42,6 +47,7 @@ public class BathroomTrigger : MonoBehaviour
             InteractableIconPlayer.SetActive(true);
             if (Input.GetKey(KeyCode.E))
             {
+                sfx.PlayAudio(0);
                 bathroomIsPlaying = true;
                 transitionObject.SetActive(true);
                 transitionTimer = transitionTimerStore;
@@ -59,6 +65,7 @@ public class BathroomTrigger : MonoBehaviour
     }
 
     private void teleport(){
+        musicController.PlayAudio(1);
         camera.transform.position = cameraTarget.transform.position;
     }
 }

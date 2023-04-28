@@ -14,12 +14,15 @@ public class Reactor_Focos : MonoBehaviour
 
     HealthBar healthBar;
 
+    SFX_Controller sfx;
+
     private void Start()
     {
         eventGenerator = FindObjectOfType<GeneradorDeEventos>();
         lever = FindObjectOfType<Reactor_Palanca>();
         slider = FindObjectOfType<Reactor_Slider>();
         healthBar = FindObjectOfType<HealthBar>();
+        sfx = FindObjectOfType<SFX_Controller>();
     }
     public void TurnOn(int index)
     {
@@ -28,6 +31,7 @@ public class Reactor_Focos : MonoBehaviour
         else
             image[index].color = Color.red;
         isTurnedOn[index] = true;
+        sfx.PlayAudio(3);
 
         CheckIfFinished();
     }
@@ -45,6 +49,7 @@ public class Reactor_Focos : MonoBehaviour
             GeneradorDeEventos.reactorIsActive = false;
             GeneradorDeEventos.reactorTimer = eventGenerator.reactorDelay;
             Movement.canMove = true;
+            sfx.PlayAudio(4);
             Invoke("DeactivateUI", 2);
         }
     }
