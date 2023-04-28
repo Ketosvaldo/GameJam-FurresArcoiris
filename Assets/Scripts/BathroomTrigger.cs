@@ -2,31 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SCR_Teleport : MonoBehaviour
+public class BathroomTrigger : MonoBehaviour
 {
-    public float posX; //cordenadas en X
-    public float posY; //cordenadas en Y
-    public GameObject InteractableIconPlayer;
-
     public GameObject transitionObject;
-    public Collider2D playerStore = null;
-
-    // Movimiento de la camara
     public GameObject camera;
     public GameObject cameraTarget;
+    public GameObject InteractableIconPlayer;
+    public GameObject cheetaBathroomAnim;
+    public GameObject bathroomUI;
 
-    public float transitionTimer = 1, transitionTimerStore;
-    private bool canTeleport = false;
+    public float transitionTimer = 4.5f, transitionTimerStore;
+
+    public static bool bathroomIsPlaying;
 
     private void Start() {
         transitionTimerStore = transitionTimer;
     }
 
     private void Update(){
-        if(canTeleport && transitionTimer <= 0){
-            transitionTimer = transitionTimerStore;
+        if(transitionTimer <= 2.6){
             teleport();
-        }else if(canTeleport && transitionTimer > 0){
+            cheetaBathroomAnim.SetActive(true);
+        }
+        if(transitionTimer <= 0.0){
+            bathroomUI.SetActive(true);
+            bathroomIsPlaying = false;
+            transitionTimer = transitionTimerStore;
+        }else if(transitionTimer > 0.0 && bathroomIsPlaying){
             transitionTimer -= Time.deltaTime;
         }else{
             transitionTimer = transitionTimerStore;
@@ -35,14 +37,14 @@ public class SCR_Teleport : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == "Player" && GeneradorDeEventos.bathroomIsActive)
         {
             InteractableIconPlayer.SetActive(true);
             if (Input.GetKey(KeyCode.E))
             {
+                bathroomIsPlaying = true;
                 transitionObject.SetActive(true);
-                playerStore = collision;
-                canTeleport = true;
+                transitionTimer = transitionTimerStore;
                 Movement.canMove = false;
             }
         }
@@ -57,9 +59,6 @@ public class SCR_Teleport : MonoBehaviour
     }
 
     private void teleport(){
-        playerStore.transform.position = new Vector2(posX, posY);
         camera.transform.position = cameraTarget.transform.position;
-        //Movement.canMove = true;
-        canTeleport = false;
     }
 }
