@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 /*
     HealthBar toma un componente de slider y cambia el estado de progreso de la barra con el tiempo si la vida se esta drenando. Mediante inputs externos se checa
@@ -14,6 +15,8 @@ public class HealthBar : MonoBehaviour
     [SerializeField]float healthLossPerTick = 0.1f;
     public Slider slider; // Sirve para añadir una referencia a la propiedad de slider desde el inspector
     public GameObject textContainer; // Variable temporal para probar la lógica
+
+    public string deathSceneName;
 
     bool healthDecreasing = false;
 
@@ -42,7 +45,8 @@ public class HealthBar : MonoBehaviour
     }
 
     public void healthDepleted(){
-        textContainer.SetActive(true); // Actualmente activa el texto de fin de juego, pero se reemplazará con la lógica ya que sea implementada
+        //textContainer.SetActive(true); // Actualmente activa el texto de fin de juego, pero se reemplazará con la lógica ya que sea implementada
+        SceneManager.LoadScene(deathSceneName);
     }
 
     /*
