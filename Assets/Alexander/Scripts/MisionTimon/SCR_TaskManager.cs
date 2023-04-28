@@ -11,15 +11,21 @@ public class SCR_TaskManager : MonoBehaviour
 
     public GameObject panel;
 
+    private GeneradorDeEventos eventGenerator;
+
     private void Start()
     {
         SelectButton();
+        eventGenerator = FindObjectOfType<GeneradorDeEventos>();
     }
 
     private void Update()
     {
         if (count == 4)
         {
+            GeneradorDeEventos.simonIsActive = false;
+            GeneradorDeEventos.simonTimer = eventGenerator.simonDelay;
+            Movement.canMove = true;
             panel.SetActive(false);
         }
     }

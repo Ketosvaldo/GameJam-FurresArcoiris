@@ -14,6 +14,7 @@ public class SCR_Button : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     private SCR_TaskManager taskManager; //referencia del task manager
     public GameObject over; //objeto que hace que el boton se remarque
 
+
     private void Start()
     {
         taskManager = FindObjectOfType<SCR_TaskManager>();
@@ -23,19 +24,19 @@ public class SCR_Button : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         if (onGame)
         {
-            timeToLose += 1 * Time.deltaTime; //inicio del contador para perder
+            timeToLose += Time.deltaTime; //inicio del contador para perder
         }
 
         if (isTimer) //aumenta cuando presionas el boton
         {
-            timeToWin += 1 * Time.deltaTime;
+            timeToWin += Time.deltaTime;
         }
 
         if (timeToWin >= 2.0f)
         {
-            over.SetActive(false);
-            taskManager.SelectButton();  
+            taskManager.SelectButton();
             Restart();
+            over.SetActive(false);
         }
         else if (timeToLose - timeToWin >= 7)
         {

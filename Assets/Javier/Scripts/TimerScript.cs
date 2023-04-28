@@ -35,12 +35,11 @@ public class TimerScript : MonoBehaviour
         }
     }
 
-    void UpdateTimerText(float currentTime){
+    void UpdateTimerText(float currentTime) {
         currentTime += 1; // Se suma 1 ya que se actualiza el texto despues de iniciado el sistema
         float min = Mathf.FloorToInt(currentTime / 60);
-        float sec = Mathf.FloorToInt(currentTime % 60); // Se utiliza para dividir el tiempo en minutos y segundos para escribirse
 
-        timerText.text = string.Format("{0:00} : {1:00}", min, sec); // Se escribe con formato de tiempo
+        timerText.text = string.Format("{0}:00", min + 1);
     }
 
     public void GameEnd(){

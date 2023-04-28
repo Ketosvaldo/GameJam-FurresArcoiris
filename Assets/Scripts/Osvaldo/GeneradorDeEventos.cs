@@ -6,13 +6,13 @@ public class GeneradorDeEventos : MonoBehaviour
 {
     public int eventStartTimeFirst, eventStartTimeSecond, eventStartTimeThird;
 
-    public int bathroomProbability, reactorProbability;
+    public int bathroomProbability, reactorProbability, simonProbability;
 
     static public float bathroomTimer, reactorTimer, simonTimer;
 
     public static bool bathroomIsActive, reactorIsActive, simonIsActive;
 
-    public float bathroomDelay, reactorDelay;
+    public float bathroomDelay, reactorDelay, simonDelay;
 
     public GameObject bathroomAlert, reactorAlert, simonAlert;
 
@@ -25,18 +25,27 @@ public class GeneradorDeEventos : MonoBehaviour
     {
         bathroomDmgTimerStore = bathroomDmgTimer;
         reactorDmgTimerStore = reactorDmgTimer;
+        simonDmgTimerStore = simonDmgTimer;
         healthBar = FindObjectOfType<HealthBar>();
-        simonAlert.SetActive(false);
-        int randomValue = Random.Range(0, 2);
+
+        int randomValue = Random.Range(0, 3);
         if(randomValue == 0)
         {
             bathroomTimer = eventStartTimeFirst;
             reactorTimer = eventStartTimeSecond;
+            simonTimer = eventStartTimeThird;
+        }
+        else if(randomValue == 1)
+        {
+            bathroomTimer = eventStartTimeThird;
+            reactorTimer = eventStartTimeFirst;
+            simonTimer = eventStartTimeSecond;
         }
         else
         {
             bathroomTimer = eventStartTimeSecond;
-            reactorTimer = eventStartTimeFirst;
+            reactorTimer = eventStartTimeThird;
+            simonTimer = eventStartTimeFirst;
         }
     }
 
@@ -66,7 +75,6 @@ public class GeneradorDeEventos : MonoBehaviour
             }
         }
         
-
         if (!reactorIsActive && reactorTimer > 0)
         {
             reactorTimer -= Time.deltaTime;
@@ -89,6 +97,30 @@ public class GeneradorDeEventos : MonoBehaviour
             if(reactorDmgTimer <= 0){
                 healthBar.damageDrain();
             }
+        }
+
+        if (!simonIsActive && simonTimer > 0)
+        {
+            simonTimer -= Time.deltaTime;
+            simonAlert.SetActive(false);
+        }
+        else if (!simonIsActive)
+        {
+            int randomValue = Random.Range(0, 100);
+            if (randomValue <= simonProbability)
+            {
+                simonIsActive = true;
+                simonDmgTimer = simonDmgTimerStore;
+                simonAlert.SetActive(true);
+            }
+            else
+                simonTimer += 1;
+        }
+        else
+        {
+            simonDmgTimer -= Time.deltaTime;
+            if (simonDmgTimer <= 0)
+                healthBar.damageDrain();
         }
     }
 }

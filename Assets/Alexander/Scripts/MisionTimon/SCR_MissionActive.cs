@@ -8,8 +8,9 @@ public class SCR_MissionActive : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Player" )
+        if(collision.tag == "Player" && GeneradorDeEventos.simonIsActive)
         {
+            Movement.canMove = false;
             mision.SetActive(true);
         }
     }
