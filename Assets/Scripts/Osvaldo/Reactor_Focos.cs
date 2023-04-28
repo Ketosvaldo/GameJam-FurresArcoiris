@@ -23,7 +23,10 @@ public class Reactor_Focos : MonoBehaviour
     }
     public void TurnOn(int index)
     {
-        image[index].color = Color.green;
+        if(index == 0)
+            image[index].color = Color.blue;
+        else
+            image[index].color = Color.red;
         isTurnedOn[index] = true;
 
         CheckIfFinished();
@@ -42,12 +45,17 @@ public class Reactor_Focos : MonoBehaviour
             GeneradorDeEventos.reactorIsActive = false;
             GeneradorDeEventos.reactorTimer = eventGenerator.reactorDelay;
             Movement.canMove = true;
-            TurnOff(0);
-            TurnOff(1);
-            lever.slider.value = 0;
-            slider.ResetSlider();
-            healthBar.repairDrain();
-            ReactorUI.SetActive(false);
+            Invoke("DeactivateUI", 2);
         }
+    }
+
+    void DeactivateUI()
+    {
+        lever.slider.value = 0;
+        slider.ResetSlider();
+        healthBar.repairDrain();
+        TurnOff(0);
+        TurnOff(1);
+        ReactorUI.SetActive(false);
     }
 }
