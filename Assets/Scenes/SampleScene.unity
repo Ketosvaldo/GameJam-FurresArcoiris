@@ -199,6 +199,16 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5988606}
   m_CullTransparentMesh: 1
+--- !u!1 &22467253 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4143058319832470655, guid: 854cfc28c52e0324a960bf3d9fa29770, type: 3}
+  m_PrefabInstance: {fileID: 4143058319810070218}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &48007996 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4143058319858011638, guid: 854cfc28c52e0324a960bf3d9fa29770, type: 3}
+  m_PrefabInstance: {fileID: 4143058319810070218}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &60517224
 GameObject:
   m_ObjectHideFlags: 0
@@ -1675,6 +1685,8 @@ MonoBehaviour:
   InteractableIconPlayer: {fileID: 659127816}
   transitionObject: {fileID: 1751061307}
   playerStore: {fileID: 0}
+  camera: {fileID: 519420028}
+  cameraTarget: {fileID: 768055475}
   transitionTimer: 1
   transitionTimerStore: 0
 --- !u!1 &608306186
@@ -1964,6 +1976,11 @@ GameObject:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 146911076103181114, guid: 0e8b7c8bbf2d37c409fb466ff0195c0e, type: 3}
   m_PrefabInstance: {fileID: 104126844}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &768055475 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4143058320175275641, guid: 854cfc28c52e0324a960bf3d9fa29770, type: 3}
+  m_PrefabInstance: {fileID: 4143058319810070218}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &805788726
 GameObject:
@@ -3148,9 +3165,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posX: 0
   posY: -3.15
-  InteractableIconPlayer: {fileID: 0}
-  transitionObject: {fileID: 0}
+  InteractableIconPlayer: {fileID: 659127816}
+  transitionObject: {fileID: 1751061307}
   playerStore: {fileID: 0}
+  camera: {fileID: 519420028}
+  cameraTarget: {fileID: 22467253}
   transitionTimer: 1
   transitionTimerStore: 0
 --- !u!1 &1469148093
@@ -3752,6 +3771,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1820153383 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4143058319079952621, guid: 854cfc28c52e0324a960bf3d9fa29770, type: 3}
+  m_PrefabInstance: {fileID: 4143058319810070218}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1906572751
 GameObject:
   m_ObjectHideFlags: 0
@@ -4183,9 +4207,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posX: 7.5
   posY: 0
-  InteractableIconPlayer: {fileID: 0}
-  transitionObject: {fileID: 0}
+  InteractableIconPlayer: {fileID: 659127816}
+  transitionObject: {fileID: 1751061307}
   playerStore: {fileID: 0}
+  camera: {fileID: 519420028}
+  cameraTarget: {fileID: 22467253}
   transitionTimer: 1
   transitionTimerStore: 0
 --- !u!1 &2036987939
@@ -4218,11 +4244,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c587883fdfdba524ca2c96193f3fcec5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  posX: -8
+  posX: -3.8
   posY: 0
   InteractableIconPlayer: {fileID: 659127816}
-  transitionObject: {fileID: 0}
+  transitionObject: {fileID: 1751061307}
   playerStore: {fileID: 0}
+  camera: {fileID: 519420028}
+  cameraTarget: {fileID: 22467253}
   transitionTimer: 1
   transitionTimerStore: 0
 --- !u!61 &2036987941
@@ -4442,6 +4470,8 @@ MonoBehaviour:
   InteractableIconPlayer: {fileID: 659127816}
   transitionObject: {fileID: 1751061307}
   playerStore: {fileID: 0}
+  camera: {fileID: 519420028}
+  cameraTarget: {fileID: 1820153383}
   transitionTimer: 1
   transitionTimerStore: 0
 --- !u!4 &2083766101 stripped
@@ -4552,11 +4582,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c587883fdfdba524ca2c96193f3fcec5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  posX: -16
+  posX: -13.5
   posY: 0
   InteractableIconPlayer: {fileID: 659127816}
   transitionObject: {fileID: 1751061307}
   playerStore: {fileID: 0}
+  camera: {fileID: 519420028}
+  cameraTarget: {fileID: 48007996}
   transitionTimer: 1
   transitionTimerStore: 0
 --- !u!50 &2108580344 stripped
@@ -4629,6 +4661,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d592a2743b58e0b47af1654e4fd6efdd, type: 3}
+--- !u!1001 &4143058319810070218
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4143058319732706524, guid: 854cfc28c52e0324a960bf3d9fa29770, type: 3}
+      propertyPath: m_RootOrder
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 4143058319732706524, guid: 854cfc28c52e0324a960bf3d9fa29770, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4143058319732706524, guid: 854cfc28c52e0324a960bf3d9fa29770, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4143058319732706524, guid: 854cfc28c52e0324a960bf3d9fa29770, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4143058319732706524, guid: 854cfc28c52e0324a960bf3d9fa29770, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4143058319732706524, guid: 854cfc28c52e0324a960bf3d9fa29770, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4143058319732706524, guid: 854cfc28c52e0324a960bf3d9fa29770, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4143058319732706524, guid: 854cfc28c52e0324a960bf3d9fa29770, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4143058319732706524, guid: 854cfc28c52e0324a960bf3d9fa29770, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4143058319732706524, guid: 854cfc28c52e0324a960bf3d9fa29770, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4143058319732706524, guid: 854cfc28c52e0324a960bf3d9fa29770, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4143058319732706527, guid: 854cfc28c52e0324a960bf3d9fa29770, type: 3}
+      propertyPath: m_Name
+      value: CamTargets
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 854cfc28c52e0324a960bf3d9fa29770, type: 3}
 --- !u!1001 &6400123706633257035
 PrefabInstance:
   m_ObjectHideFlags: 0
