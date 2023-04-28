@@ -7,6 +7,7 @@ public class BgScroll : MonoBehaviour
     public float scrollSpeed = 0.1f;
     Material mat;
     private float xScroll;
+    private float yScroll;
 
     private void Awake()
     {
@@ -21,7 +22,8 @@ public class BgScroll : MonoBehaviour
     void Scroll()
     {
         xScroll = Time.time * scrollSpeed;
-        Vector2 _offset = new Vector2(xScroll, transform.position.y);
+        yScroll = Time.time * scrollSpeed;
+        Vector2 _offset = new Vector2(xScroll, yScroll);
         mat.mainTextureOffset = _offset;
     }
 }

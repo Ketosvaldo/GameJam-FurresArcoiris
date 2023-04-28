@@ -33,13 +33,15 @@ public class SCR_Teleport : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            Movement.canMove = false;
-            playerStore = collision;
-            canTeleport = true;
-            transitionObject.SetActive(true);
             InteractableIconPlayer.SetActive(true);
-            if(Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKey(KeyCode.E))
+            {
+                transitionObject.SetActive(true);
+                playerStore = collision;
+                canTeleport = true;
+                Movement.canMove = false;
                 collision.transform.position = new Vector2(posX, posY);
+            }   
             Debug.Log("kaycode");
         }
     }
