@@ -61,6 +61,6 @@ public class MainScreenManager : MonoBehaviour
 
     void IniciarJuego()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Level1");
     }
 }
