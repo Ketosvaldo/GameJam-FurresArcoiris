@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4bf7145819f4f81408808ead608455fe
+guid: 5110b15c9aaa34d4d821a648528a74ec
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,9 +9,8 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - DS-Digital
-  fallbackFontReferences:
-  - {fileID: 12800000, guid: 92d80dff4614124469ebf5eb73ea2341, type: 3}
+  - Digital-7
+  fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1
