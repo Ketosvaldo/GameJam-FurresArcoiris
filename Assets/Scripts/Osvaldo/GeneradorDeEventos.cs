@@ -23,6 +23,7 @@ public class GeneradorDeEventos : MonoBehaviour
 
     void Start()
     {
+        Application.targetFrameRate = 60;
         bathroomDmgTimerStore = bathroomDmgTimer;
         reactorDmgTimerStore = reactorDmgTimer;
         simonDmgTimerStore = simonDmgTimer;
@@ -102,7 +103,6 @@ public class GeneradorDeEventos : MonoBehaviour
 
         if (!simonIsActive && simonTimer > 0)
         {
-            Debug.Log("Hola mundo");
             simonTimer -= Time.deltaTime;
             simonAlert.SetActive(false);
         }

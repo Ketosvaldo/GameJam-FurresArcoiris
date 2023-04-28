@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 using UnityEngine.SceneManagement;
 
 /*
@@ -14,7 +13,7 @@ public class TimerScript : MonoBehaviour
 {
     public float time; // Se utiliza para contar el tiempo transcurrido
     bool timerOn = false; // Se utiliza para activar y desactivar el reloj
-    public TMP_Text timerText; // Se utiliza para enlazar el texto y cambiarlo
+    public Text timerText; // Se utiliza para enlazar el texto y cambiarlo
     public GameObject winTextContainer; // Variable temporal para probar la victoria
 
     public string winScene;

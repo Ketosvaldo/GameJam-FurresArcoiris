@@ -15,6 +15,14 @@ public class ButtonMash : MonoBehaviour
     private GeneradorDeEventos eventGenerator; //Referencia al generador de eventos
     HealthBar healthBar;
 
+    public GameObject camera;
+    public GameObject cameraTarget;
+
+    public GameObject transitionObject;
+    public GameObject cheetaBathroomAnim;
+
+    public GameObject InteractableIconPlayer;
+
     bool hasClicked; // Se usa para llevar control de los clicks al botón
     bool hasSucceded; // Se usa para determinar si el jugador completó el minijuego
     float perClickValue = 0.2f; // Valor de cada click al botón
@@ -42,6 +50,7 @@ public class ButtonMash : MonoBehaviour
     }
 
     public void ButtonClick(){
+        if(!Pausa.isPause)
         hasClicked = true; // ButtonClick se usa para enlazar el script con los clicks del botón
     }
 
@@ -60,10 +69,19 @@ public class ButtonMash : MonoBehaviour
         //youWinTextContainer.SetActive(true); // Lógica temporal, será reemplazado con la lógica requerida por el manager de tareas
         GeneradorDeEventos.bathroomIsActive = false;
         GeneradorDeEventos.bathroomTimer = eventGenerator.bathroomDelay;
-        Movement.canMove = true;
         hasSucceded=false;
         mashProgress=0;
         healthBar.repairDrain();
         bathroomUI.SetActive(false);
+        BathroomTrigger.bathroomIsPlaying = false;
+        cheetaBathroomAnim.SetActive(false);
+        transitionObject.SetActive(true);
+        Invoke("moveCamera", 1);
+        InteractableIconPlayer.SetActive(false);
+        
+    }
+
+    private void moveCamera(){
+        camera.transform.position = cameraTarget.transform.position;
     }
 }

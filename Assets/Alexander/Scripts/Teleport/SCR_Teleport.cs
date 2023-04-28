@@ -44,7 +44,7 @@ public class SCR_Teleport : MonoBehaviour
                 playerStore = collision;
                 canTeleport = true;
                 Movement.canMove = false;
-            }   
+            }
         }
     }
 
