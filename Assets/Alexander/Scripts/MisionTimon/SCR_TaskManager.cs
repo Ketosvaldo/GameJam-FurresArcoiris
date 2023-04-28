@@ -26,6 +26,7 @@ public class SCR_TaskManager : MonoBehaviour
             GeneradorDeEventos.simonIsActive = false;
             GeneradorDeEventos.simonTimer = eventGenerator.simonDelay;
             Movement.canMove = true;
+            count = 0;
             panel.SetActive(false);
         }
     }
