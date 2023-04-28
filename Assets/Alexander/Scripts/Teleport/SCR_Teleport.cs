@@ -11,6 +11,10 @@ public class SCR_Teleport : MonoBehaviour
     public GameObject transitionObject;
     public Collider2D playerStore = null;
 
+    // Movimiento de la camara
+    public GameObject camera;
+    public GameObject cameraTarget;
+
     public float transitionTimer = 1, transitionTimerStore;
     private bool canTeleport = false;
 
@@ -22,7 +26,7 @@ public class SCR_Teleport : MonoBehaviour
         if(canTeleport && transitionTimer <= 0){
             transitionTimer = transitionTimerStore;
             teleport();
-        }else if(canTeleport){
+        }else if(canTeleport && transitionTimer > 0){
             transitionTimer -= Time.deltaTime;
         }else{
             transitionTimer = transitionTimerStore;
@@ -40,9 +44,7 @@ public class SCR_Teleport : MonoBehaviour
                 playerStore = collision;
                 canTeleport = true;
                 Movement.canMove = false;
-                collision.transform.position = new Vector2(posX, posY);
             }   
-            Debug.Log("kaycode");
         }
     }
 
@@ -51,13 +53,13 @@ public class SCR_Teleport : MonoBehaviour
         if (collision.tag == "Player")
         {
             InteractableIconPlayer.SetActive(false);
-            Debug.Log("kaycode");
         }
     }
 
     private void teleport(){
         playerStore.transform.position = new Vector2(posX, posY);
-        Movement.canMove = true;
+        camera.transform.position = cameraTarget.transform.position;
+        //Movement.canMove = true;
         canTeleport = false;
     }
 }
